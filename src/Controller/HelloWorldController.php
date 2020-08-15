@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HelloWorldController extends AbstractController {
 
         /**
-         * @Route("/")
+         * @Route("/hello")
           */
 
     public function index() {
