@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h2>Create a Parking :</h2>
+
+<div class="container">
+
+    {{ form_start(parkingForm) }} 
+
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_row(parkingForm.name) }}
+                {{ form_row(parkingForm.localisation) }}
+                {{ form_row(parkingForm.parkingSpaces) }}
+            
+            </div>
+           
+        </div>
+        
+
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+    {{ form_end(parkingForm) }} 
+</div>
+
+
+
+{% endblock %}

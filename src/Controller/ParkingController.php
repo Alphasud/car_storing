@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-use App\Form\Type\CarType;
+use App\Form\Type\ParkingType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Car;
+use App\Entity\Parking;
+use App\Entity\ParkingSpace;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,44 +17,34 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
-class CarController extends AbstractController
+class ParkingController extends AbstractController
 {
     /**
-     * @Route("/car", name="car")
+     * @Route("/parking", name="parking")
      */
-    
-
-        public function createCar(Request $request) : Response
+    public function createParking(Request $request) : Response
     {
         
-        $car = new Car();
+        $parking = new Parking();
         
-        $form = $this->createForm(CarType::class, $car);
+        $form = $this->createForm(ParkingType::class, $parking);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-        $car = $form->getData();
+        $parking = $form->getData();
 
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($car);
+        $entityManager->persist($parking);
         $entityManager->flush();
 
         return new Response(
-            'Saved new car with id: '.$car->getId());
+            'Created new parking with id: '.$parking->getId());
         
     }
 
-        return $this->render('car_form.html.twig', [
-            'carForm' => $form->createView(),
+        return $this->render('parking_form.html.twig', [
+            'parkingForm' => $form->createView(),
             ]);
 
     }
-    
-
-
-        
-    }
-
-
-  
-
+}
