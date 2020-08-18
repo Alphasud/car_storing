@@ -22,12 +22,12 @@ class ParkingSpace
     /**
      * @ORM\Column(type="float")
      */
-    private $height = 3.5;
+    private $height;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $width = 3.5;
+    private $width;
 
     /**
      * @ORM\ManyToOne(targetEntity=Parking::class, inversedBy="parkingSpaces")

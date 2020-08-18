@@ -8,8 +8,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
+use App\Dto\ParkingInput;
+use App\Dto\ParkingOutput;
+
 /**
- * @ApiResource()
+ * @ApiResource(
+ *      input=ParkingInput::class,
+ *      output=ParkingOutput::class
+ * )
  * @ORM\Entity(repositoryClass=ParkingRepository::class)
  */
 class Parking
@@ -148,8 +155,8 @@ class Parking
     }
 
 
-    public function getPlace(int $parkingSpace){
-        $parkingSpace = 3;
+    public function getPlace(int $parkingSpaces){
+    
      }
  
      public function addCarToParking(){

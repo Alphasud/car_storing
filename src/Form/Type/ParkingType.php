@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ParkingType extends AbstractType
 {
@@ -19,8 +20,9 @@ class ParkingType extends AbstractType
     {
         $builder
         ->add('name', TextType::class, ['label'=> 'Name of the Parking : '])
-        ->add('localisation', TextType::class, ['label' => 'Where is the parking situated ? '])
-        ->add('parkingSpaces', ParkingSpace::class)
+        ->add('localisation', TextType::class, ['label' => 'Where is the parking located ? '])
+        ->add('parkingSpace', EntityType::class, ['class' => ParkingSpace::class])
+        
         ;
     }
 

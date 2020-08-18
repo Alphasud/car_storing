@@ -1,0 +1,10 @@
+# api/config/services.yaml
+services:
+    # ...
+    'App\DataTransformer\ParkingInputDataTransformer': ~
+        # Uncomment only if autoconfiguration is disabled
+        #tags: [ 'api_platform.data_transformer' ]
+    # ...
+    'App\DataTransformer\ParkingOutputDataTransformer': ~
+        # Uncomment only if autoconfiguration is disabled
+        #tags: [ 'api_platform.data_transformer' ]

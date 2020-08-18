@@ -26,7 +26,13 @@ class ParkingController extends AbstractController
     {
         
         $parking = new Parking();
+
+        $parkingSpace = new ParkingSpace();
+        $parkingSpace->setHeight(3);
+        $parkingSpace->setWidth(4);
+            
         
+
         $form = $this->createForm(ParkingType::class, $parking);
 
         $form->handleRequest($request);
@@ -35,12 +41,15 @@ class ParkingController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($parking);
+        $entityManager->persist($parkingSpace);
         $entityManager->flush();
 
         return new Response(
             'Created new parking with id: '.$parking->getId());
         
+            
     }
+        
 
         return $this->render('parking_form.html.twig', [
             'parkingForm' => $form->createView(),

@@ -3,6 +3,7 @@
 namespace App\Form\Type;
 
 use App\Entity\Car;
+use App\Entity\Parking;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +24,7 @@ class CarType extends AbstractType
         ->add('color', ColorType::class, ['label'=> 'Color of the Car : '])
         ->add('height', NumberType::class, ['label'=> 'Height of the Car : '])
         ->add('width', NumberType::class, ['label'=> 'Width of the Car : '])
-        ->add('parking')
+        ->add('parking', TextType::class)
         
         
             
