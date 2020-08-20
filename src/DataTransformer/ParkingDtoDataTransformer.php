@@ -5,8 +5,9 @@ namespace App\DataTransformer;
 
 use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
 use App\Entity\Parking;
+use App\Entity\ParkingSpace;
 
-final class ParkingInputDataTransformer implements DataTransformerInterface
+final class ParkingDtoDataTransformer implements DataTransformerInterface
 {
     /**
      * {@inheritdoc}
@@ -15,8 +16,15 @@ final class ParkingInputDataTransformer implements DataTransformerInterface
      public function transform($data, string $to, array $context = [])
      {
          $parking = new Parking();
-         $parking->name = $data->name;
-         $parking->localisation = $data->localisation;
+         $parking->SetName($data->GetName());
+         $parking->SetLocalisation($data->GetLocalisation());
+         for($i=0; $i<$data->getNbParkingSpaces(); $i++){
+             $parkingSpace = new ParkingSpace();
+             $parkingSpace->setHeight($data->getHeight());
+             $parkingSpace->setWidth($data->getWidth());
+             $parking->addParkingSpace($parkingSpace);
+         }
+
          return $parking;
      }
 

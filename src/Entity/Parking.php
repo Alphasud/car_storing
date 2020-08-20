@@ -7,16 +7,12 @@ use App\Repository\ParkingRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Dto\ParkingDto;
 
-
-use App\Dto\ParkingInput;
-use App\Dto\ParkingOutput;
 
 /**
  * @ApiResource(
- *      input=ParkingInput::class,
- *      output=ParkingOutput::class
- * )
+ *      input=ParkingDto::class)
  * @ORM\Entity(repositoryClass=ParkingRepository::class)
  */
 class Parking
@@ -51,7 +47,7 @@ class Parking
     public function __construct()
     {
         $this->cars = new ArrayCollection();
-        $this->parkingSpace = new ParkingSpace();
+        $this->parkingSpace = new ArrayCollection();
         $this->parkingSpaces = new ArrayCollection();
     }
 

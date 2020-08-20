@@ -9,51 +9,56 @@ use App\Entity\Parking;
 use App\Entity\ParkingSpace;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\ColorType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use App\Dto\ParkingDto;
+use App\Dto\ParkingDtoDataTransformer;
+use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
+
 
 
 class ParkingController extends AbstractController
 {
     /**
-     * @Route("/parking", name="parking")
+     * @Route("/parking", name="create_parking")
      */
     public function createParking(Request $request) : Response
     {
         
+        $parkingDto = new ParkingDto();
         $parking = new Parking();
-
-        $parkingSpace = new ParkingSpace();
-        $parkingSpace->setHeight(3);
-        $parkingSpace->setWidth(4);
-            
-        
-
-        $form = $this->createForm(ParkingType::class, $parking);
+        $form = $this->createForm(ParkingType::class, $parkingDto);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
-        $parking = $form->getData();
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($parking);
-        $entityManager->persist($parkingSpace);
-        $entityManager->flush();
+            $manager = $this->getDoctrine()->getManager();
+            $parking->setName($parkingDto->getName());
+            $parking->setLocalisation($parkingDto->getLocalisation());
+            $manager->persist($parking);
 
-        return new Response(
-            'Created new parking with id: '.$parking->getId());
+            for ( $i =0; $i<$parkingDto->getNbParkingSpaces(); $i++ ) {
+                $parkingSpace = new ParkingSpace();
+                $parkingSpace->setParking($parking);
+                $parkingSpace->setWidth($parkingDto->getWidth());
+                $parkingSpace->setHeight($parkingDto->getHeight());
+                $manager->persist($parkingSpace);
+            }
         
+            $manager->flush();
+        
+
+        $this->addFlash('success', 'Parking and Parking Spaces Created !');
+        return $this->redirectToRoute('create_parking');
             
     }
-        
+
 
         return $this->render('parking_form.html.twig', [
             'parkingForm' => $form->createView(),
             ]);
 
-    }
+        }
+    
+    
 }

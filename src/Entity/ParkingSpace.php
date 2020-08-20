@@ -31,8 +31,9 @@ class ParkingSpace
 
     /**
      * @ORM\ManyToOne(targetEntity=Parking::class, inversedBy="parkingSpaces")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $parkingSpaces;
+    private $parking;
 
     public function getId(): ?int
     {
@@ -71,18 +72,6 @@ class ParkingSpace
     public function setParking(?Parking $parking): self
     {
         $this->parking = $parking;
-
-        return $this;
-    }
-
-    public function getParkingSpaces(): ?Parking
-    {
-        return $this->parkingSpaces;
-    }
-
-    public function setParkingSpaces(?Parking $parkingSpaces): self
-    {
-        $this->parkingSpaces = $parkingSpaces;
 
         return $this;
     }

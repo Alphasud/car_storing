@@ -19,11 +19,11 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 class CarController extends AbstractController
 {
     /**
-     * @Route("/car", name="car")
+     * @Route("/car", name="create_car")
      */
     
 
-        public function createCar(Request $request) : Response
+        public function createCar(Request $request)
     {
         
         $car = new Car();
@@ -38,8 +38,8 @@ class CarController extends AbstractController
         $entityManager->persist($car);
         $entityManager->flush();
 
-        return new Response(
-            'Saved new car with id: '.$car->getId());
+        $this->addFlash('success', 'Car Created Successfully !');
+        return $this->redirectToRoute('create_car');
         
     }
 

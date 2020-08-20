@@ -2,30 +2,41 @@
 
 {% block body %}
 
-<h2>Add a Car :</h2>
+<div class="container- fluid p-3 my-3 bg-dark text-white">
 
-<div class="container">
+    {{ form_start(carForm) }} 
 
-    {{ form_start(carForm) }} {# <form method="post"> #}
+    {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show">
+             <strong>All Good !</strong> Car Created Successfully !
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+    {% endfor %}
 
         <div class="row">
             <div class="col-sm-6">
-                {{ form_row(carForm.name) }}
-                {{ form_row(carForm.nbSeat) }}
-                {{ form_row(carForm.color) }}    
-            </div>
-            <div class="col-sm-6">
-                {{ form_row(carForm.height) }}
-                {{ form_row(carForm.width) }}
-                {{ form_row(carForm.parking) }}
-            </div>
+                {{ form_row(carForm.name, {'attr':{'class':'form-control' }}) }}
+                <br>
+                {{ form_row(carForm.nbSeat, {'attr':{'class':'form-control' }}) }}
+                <br>
+                {{ form_row(carForm.color, {'attr':{'class':'form-control' }}) }}
+                <br>
+                {{ form_row(carForm.height, {'attr':{'class':'form-control' }}) }}
+                <br>
+                {{ form_row(carForm.width, {'attr':{'class':'form-control' }}) }}
+                
+                </div>
         </div>
-        
 
-        <input type="submit" value="Submit" class="btn btn-primary">
 
-    {{ form_end(carForm) }} {# </form> #}
+     <input style="margin-top:30px;" type="submit" value="Create Car" class="btn btn-primary"> 
+
+    {{ form_end(carForm) }} 
+    
 </div>
+
 
 
 {% endblock %}

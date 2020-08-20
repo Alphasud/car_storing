@@ -24,7 +24,7 @@ class CarType extends AbstractType
         ->add('color', ColorType::class, ['label'=> 'Color of the Car : '])
         ->add('height', NumberType::class, ['label'=> 'Height of the Car : '])
         ->add('width', NumberType::class, ['label'=> 'Width of the Car : '])
-        ->add('parking', TextType::class)
+        
         
         
             
