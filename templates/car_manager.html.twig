@@ -2,33 +2,34 @@
 
 
 {% block body %}
-
-        <h4 style="margin-top:30px; color: #FFDE00;">List of Cars w/o Parking</h4>
+    <div class="container">
+        <h4 style="margin-top:30px; color: #FFDE00;margin-left:20px;">List of Cars w/o Parking</h4>
         <br>
-        <div class="list-group container">
-            <ul class="sortable row" style="min-height:50px">
+        <div class="list-group">
+            <ul class="sortable row">
             {% for car in cars %}
-                <li class="list-group-item list-group-item-action col-lg-2" id="{{car.id}}">{{ car.name }}</li>
+                <li class="list-group-item list-group-item-action col-lg-2" style="margin-right:2px;border:solid white;color:white;background-color:black;" id="{{car.id}}"><strong>{{ car.name }}</strong>
+                <br>
+                 Color &nbsp<span class="badge-pill" style="background-color:{{car.color}};"></span>
+                </li>
             {% endfor %}
             </ul>
         </div>
         <br>
 
-        <h4 style="margin-top:30px; color: #FFDE00;">List of Parkings</h4>
+        <h4 style="margin-top:30px; color: #FFDE00;margin-left:20px;">List of Parkings</h4>
         <br>
-        <div class="list-group container">
-            <ul class="sortable row" style="min-height:50px">
+        <div class="list-group">
+            <ul class="sortable row">
             {% for parking in parkings %}
-                <li class="list-group-item list-group-item-action col-lg-2" id="{{parking.id}}"><strong>{{ parking.name }}</strong>
+                <li class="list-group-item list-group-item-action col-lg-2" style="margin-right:2px;border:solid white;color:white;background-color:black;" id="{{parking.id}}"><strong>{{ parking.name }}</strong>
                 <br>
-            {% for parking in parking.parkingSpace %} 
-                <span class="badge badge-primary badge-pill">Spaces : {{parking.parkingSpaces}}</span>
-            {% endfor %}
+                <span class="badge badge-primary badge-pill">Parking Spaces : {{ parking.parkingSpaces|length }} </span>
                 </li>
             {% endfor %}
             </ul>
         </div> 
-    
+    </div>
 
 
 {% endblock %}

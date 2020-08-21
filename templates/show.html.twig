@@ -12,7 +12,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Name</th>
-						<th>Number of Seats</th>
+						<th>Seat(s)</th>
 						<th>Color</th>
 						<th>Height</th>
                         <th>Width</th>
@@ -26,9 +26,9 @@
 							<td>{{car.id}}</td>
 							<td>{{car.name}}</td>
 							<td>{{car.nbSeat}}</td>
-							<td>{{car.color}}</td>
+							<td><span class="badge-pill" style="background-color:{{car.color}};"></span></td>
 							<td>{{car.height}}</td>
-                            <td>{{car.width}}</td>
+                            <td>{{car.width}}</td>							
                             <td>{{car.parking}}</td>
 							<td>	
 								<a href="#" class="btn btn-light">Edit</a>
