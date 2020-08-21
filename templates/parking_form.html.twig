@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div class="container- fluid p-3 my-3 bg-dark text-white">
+<div class="container- fluid p-3 my-3 bg-black text-white">
 
     {{ form_start(parkingForm) }} 
 
@@ -15,8 +15,10 @@
          </div>
     {% endfor %}
 
-        <div class="row">
+        <div class="row" style="color:#F44901;">
             <div class="col-sm-6">
+            <h5> Parking Specifications :</h5>
+                <br>
                 {{ form_row(parkingForm.name, {'attr':{'class':'form-control' }}) }}
                 <br>
                 {{ form_row(parkingForm.localisation, {'attr':{'class':'form-control' }}) }}
@@ -26,12 +28,15 @@
                 {{ form_row(parkingForm.height, {'attr':{'class':'form-control' }}) }}
                 <br>
                 {{ form_row(parkingForm.width, {'attr':{'class':'form-control' }}) }}
+               
+                 <input style="margin-top:30px;background-color:#F44901; color:black;" type="submit" value="Create Parking" class="btn btn-outline-dark">
                 </div>
+            
+            <div class="col-sm-6">
+             <img src="images/park_2.jpeg" alt="A parking lot 8 bit illustration" height="60%" style="margin-left:50px;margin-top:40px;box-shadow: 6px -10px 5px #F44901;"> 
+            </div>
         </div>
 
-
-     <input style="margin-top:30px;" type="submit" value="Create Parking" class="btn btn-primary"> 
-    
     {{ form_end(parkingForm) }} 
     
 </div>

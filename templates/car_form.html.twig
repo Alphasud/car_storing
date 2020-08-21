@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div class="container- fluid p-3 my-3 bg-dark text-white">
+<div class="container- fluid p-3 my-3 bg-black text-white">
 
     {{ form_start(carForm) }} 
 
@@ -15,8 +15,10 @@
          </div>
     {% endfor %}
 
-        <div class="row">
-            <div class="col-sm-6">
+<div class="row" style="color:#FFDE00;">
+        <div class="column col-sm-6">
+                <h5> Car Specifications :</h5>
+                <br>
                 {{ form_row(carForm.name, {'attr':{'class':'form-control' }}) }}
                 <br>
                 {{ form_row(carForm.nbSeat, {'attr':{'class':'form-control' }}) }}
@@ -25,18 +27,15 @@
                 <br>
                 {{ form_row(carForm.height, {'attr':{'class':'form-control' }}) }}
                 <br>
-                {{ form_row(carForm.width, {'attr':{'class':'form-control' }}) }}
-                
-                </div>
+                {{ form_row(carForm.width, {'attr':{'class':'form-control' }}) }} 
+                <input style="margin-top:30px; background-color:#FFDE00; color:black;" type="submit" value="Create Car" class="btn btn-outline-dark">     
         </div>
 
+        <div class="column col-sm-6">
+            <br>
+            <img src="images/car_2.gif" alt="A car drawing" height="50%" style="margin-top:100px;">         
+        </div>
 
-     <input style="margin-top:30px;" type="submit" value="Create Car" class="btn btn-primary"> 
-
-    {{ form_end(carForm) }} 
-    
 </div>
-
-
-
+ {{ form_end(carForm) }} 
 {% endblock %}

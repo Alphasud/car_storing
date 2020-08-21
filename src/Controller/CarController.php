@@ -48,6 +48,23 @@ class CarController extends AbstractController
             ]);
 
     }
+
+    /**
+ * @Route("/car_show", name="car_show")
+ */
+    public function showCar()
+    {
+        $car = $this->getDoctrine()
+        ->getRepository(Car::class)
+        ->findAll();
+
+        if (!$car){
+            throw $this->createNotFoundException(
+                'No car found for id'.$id
+            );
+        }
+        return $this->render('show.html.twig', array('car' => $car));
+    } 
     
 
 

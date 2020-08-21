@@ -38,11 +38,11 @@ class ParkingController extends AbstractController
             $manager->persist($parking);
 
             for ( $i =0; $i<$parkingDto->getNbParkingSpaces(); $i++ ) {
-                $parkingSpace = new ParkingSpace();
-                $parkingSpace->setParking($parking);
-                $parkingSpace->setWidth($parkingDto->getWidth());
-                $parkingSpace->setHeight($parkingDto->getHeight());
-                $manager->persist($parkingSpace);
+                $parkingSpot = new ParkingSpace();
+                $parkingSpot->setParking($parking);
+                $parkingSpot->setWidth($parkingDto->getWidth());
+                $parkingSpot->setHeight($parkingDto->getHeight());
+                $manager->persist($parkingSpot);
             }
         
             $manager->flush();

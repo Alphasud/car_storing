@@ -47,4 +47,12 @@ class ParkingSpaceRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findNbSpace()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.parking_id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

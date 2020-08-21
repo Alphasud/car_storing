@@ -40,7 +40,7 @@ class Parking
     private $cars;
 
     /**
-     * @ORM\OneToMany(targetEntity=ParkingSpace::class, mappedBy="parkingSpaces")
+     * @ORM\OneToMany(targetEntity=ParkingSpace::class, mappedBy="parking", cascade={"persist"}, orphanRemoval=true))
      */
     private $parkingSpaces;
 
@@ -151,13 +151,11 @@ class Parking
     }
 
 
-    public function getPlace(int $parkingSpaces){
+    public function getPlace(){
     
      }
  
      public function addCarToParking(){
-         $parkingSpace - 1;
-         return $parkingSpace;
      }
 
 }

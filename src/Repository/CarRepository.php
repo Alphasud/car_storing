@@ -47,4 +47,14 @@ class CarRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByParkingNull()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.parking is null')
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
