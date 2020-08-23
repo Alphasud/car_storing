@@ -60,5 +60,20 @@ class ParkingController extends AbstractController
 
         }
     
+
+           /**
+           * @Route("/parking_show", name="parking_show")
+           */
+    public function showParking() : Response
+    {
+        $parking = $this->getDoctrine()
+        ->getRepository(Parking::class)
+        ->findAll();
+
+        if (!$parking){
+            return new Response('No parking in database');
+        }
+        return $this->render('show_parking.html.twig', array('parking' => $parking));
+    } 
     
 }

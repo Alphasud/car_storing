@@ -1,0 +1,35 @@
+
+Projet « Car Storing » Recrutement TACTFACTORY.
+
+Dans le cadre d’un recrutement par TACTfactory j’ai pris part à la réalisation du projet 
+« Car Storing ». Un projet à réaliser en PHP avec l’aide du framework Symfony. 
+Je tiens à travers ce texte à faire part de quelques précisions sur le travail que j’ai rendu.
+
+Tout d’abord j’aimerais préciser qu’avant de démarrer ce projet le langage PHP et le framework 
+Symfony étaient nouveau pour moi, je n'avais jamais travaillé avec ces technologies. 
+J’ai utilisé les documentation fournies dans l’énoncé ainsi que beaucoup d’autres ressources 
+pour avancer. J’ai été confronté à plusieurs difficultés, qui m'ont parfois bloqué longtemps,
+comme par exemple la gestion et la mise en place des relations entre entités, la persistance
+des données, la configuration de l’API (api-plateforme), les manipulation graphique à l’aide de 
+jquery ou même plus simplement la syntaxe php.
+
+Bien qu’ayant consacré beaucoup de temps au projet je me vois contraint de le rendre inachevé. 
+Je n’ai effectivement pas su terminer la dernière partie de la tâche #4 (Lors de la manipulation 
+consistant à déposer un voiture dans un parking la requête AJAX echoue et la base de donnée ne se
+met donc pas à jour).
+Je n’ai également complété la tâche #5 que partiellement (problème avec certaines requête CURL pour 
+l'entité 'Parking'). 
+
+Je suis tout de même content du travail accompli, car pour moi beaucoup de choses étaient nouvelles 
+et que j’ai pris beaucoup de plaisir à travailler sur ce projet. 
+J’ai tenté, même si la n’est pas le but premier de l’exercice, de créer des templates originaux 
+inspirés de l’esthétique 8-bit et des interfaces graphiques des consoles des années 90. 
+
+Ce projet a été un challenge pour moi qui vient d’une formation courte, mais il m’a beaucoup stimulé,
+m'a fait progressé et m’a donné envie d’en découvrir davantage. 
+
+J’espère que vous l’apprécierez malgré sa modeste valeur.
+
+Dans l'attente de votre retour, et vous en souhaitant bonne réception.
+
+Charles Denneulin.

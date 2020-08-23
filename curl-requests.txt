@@ -1,0 +1,47 @@
+*******--CAR--********
+
+GET :
+curl -X GET "http://localhost:8000/api/cars?page=1" -H  "accept: application/json"
+
+POST :
+curl -X POST "http://localhost:8000/api/cars" -H  "accept: application/ld+json" -H  "Content-Type: application/ld+json" -d "{\"name\":\"The Bluesmobile\",\"nbSeat\":4,\"color\":\"#000000\",\"height\":1.5,\"width\":2,\"parking\":null}"
+
+GET :
+curl -X GET "http://localhost:8000/api/cars/7" -H  "accept: application/ld+json"
+
+DELETE :
+curl -X DELETE "http://localhost:8000/api/cars/7" -H  "accept: */*"
+
+PUT :
+curl -X PUT "http://localhost:8000/api/cars/8" -H  "accept: application/ld+json" -H  "Content-Type: application/ld+json" -d "{\"name\":\"Ecto 1\",\"nbSeat\":5,\"color\":\"#FFFFFF\",\"height\":1.3,\"width\":2.4,\"parking\":null}"
+
+PATCH :
+curl -X PATCH "http://localhost:8000/api/cars/8" -H  "accept: application/ld+json" -H  "Content-Type: application/merge-patch+json" -d "{\"name\":\"Ecto1\",\"nbSeat\":4,\"color\":\"#FFFFFF\",\"height\":1.4,\"width\":2.1,\"parking\":null}"
+
+
+*******--PARKING--********
+
+GET :
+curl -X GET "http://localhost:8000/api/parkings?page=1" -H  "accept: application/ld+json"
+(Répond un code 500)
+
+POST :
+curl -X POST "http://localhost:8000/api/parkings" -H  "accept: application/ld+json" -H  "Content-Type: application/ld+json" -d "{\"name\":\"test\",\"localisation\":\"test\",\"width\":1,\"height\":1,\"nbParkingSpaces\":1}"
+(Répond un code 400)
+
+GET :
+curl -X GET "http://localhost:8000/api/parkings/1" -H  "accept: application/ld+json"
+(Répond un code 500)
+
+DELETE : 
+curl -X DELETE "http://localhost:8000/api/parkings/6" -H  "accept: */*"
+
+PUT :
+curl -X PUT "http://localhost:8000/api/parkings/1" -H  "accept: application/ld+json" -H  "Content-Type: application/ld+json" -d "{\"name\":\"Parking1\",\"localisation\":\"TownVille\",\"width\":3,\"height\":3,\"nbParkingSpaces\":7}"
+(répond un code 400, Error: Bad Request)
+
+PATCH :
+curl -X PATCH "http://localhost:8000/api/parkings/1" -H  "accept: application/ld+json" -H  "Content-Type: application/merge-patch+json" -d "{\"name\":\"Parking1\",\"localisation\":\"CityTown\",\"width\":4,\"height\":4,\"nbParkingSpaces\":5}"
+(répond un code 400, Error: Bad Request)
+
+

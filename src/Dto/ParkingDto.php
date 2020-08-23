@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Dto;
-
-
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * @ApiResource(collectionOperations={"get"={"method"="GET"}},
+ *     itemOperations={"get"={"method"="GET"}})
+ * @ORM\Entity(repositoryClass=ParkingInputRepository::class)
+ */
 final class ParkingDto 
 {
     /**

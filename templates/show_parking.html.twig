@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="container" style="background-color: black;">
+        <h3 style="margin-top:30px; color: #FFDE00;text-align:center;">List of Parkings</h3>
+        <hr>
+        <table class="table table-bordered" style="color: #FFDE00;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Parking Spaces</th>                
+                    <th>Cars Parked</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for parking in parking %}
+                <tr>
+                    <td>{{parking.id}}</td>
+                    <td>{{parking.name}}</td>
+                    <td>{{parking.localisation}}</td>
+                    <td>{{parking.parkingSpaces|length}}</td>
+                    <td>{{parking.cars|length}}</td>
+                    <td>
+                        <a href="#" class="btn btn-light">Edit</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+{% endblock %}
